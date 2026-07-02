@@ -974,6 +974,7 @@ impl<T> NonEmpty<T> {
 
     #[cfg(feature = "random")]
     pub fn choose(&self, rng: &mut impl rand::Rng) -> &T {
+        use rand::RngExt;
         let index = rng.random_range(0..self.len());
         self.get(index).unwrap()
     }
